@@ -45,11 +45,12 @@ const init = () => {
 };
 
 const loop = () => {
+  const audio = new Audio();
+  audio.src = '../public/sounds/sound.mp3';
+  audio.volume = 0.2;
+
   setTimeout(() => {
     CTX.clearRect(0, 0, CANVAS.width, CANVAS.height);
-
-    // smile.move(boundaries, key);
-    // smile.paint(CTX);
 
     hero.move(boundaries, key);
     hero.draw(CTX);
@@ -57,11 +58,12 @@ const loop = () => {
     enemies.forEach((e) => {
       e.move(boundaries, 0);
       e.draw(CTX);
-      //var = teste?verdadeiro:falso;
+
       gameover = !gameover ? hero.colide(e) : true;
     });
 
     if (gameover) {
+      audio.play();
       console.error('DEAD!!!');
       cancelAnimationFrame(anime);
     } else anime = requestAnimationFrame(loop);
