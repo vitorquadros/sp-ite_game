@@ -11,7 +11,7 @@ const qtdEnemies = 5;
 
 let enemies = Array.from({ length: qtdEnemies });
 
-const smile = new Smile(300, 100, 20, 5, 'yellow');
+// const smile = new Smile(300, 100, 20, 5, 'yellow');
 
 const hero = new Hero(310, 100, 40, 5, 82, 89, 'img/wolf-sprite.png', FRAMES);
 
